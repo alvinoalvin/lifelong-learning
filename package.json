@@ -43,5 +43,5 @@
     "not ie <= 11",
     "not op_mini all"
   ],
-  "proxy": "https://life-long-learning.herokuapp.com/"
+  "proxy": "https://life-long-learning-api.herokuapp.com/"
 }
