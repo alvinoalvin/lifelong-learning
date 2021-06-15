@@ -43,7 +43,7 @@ export default function HomePieGraphs(props) {
   }
 
   useEffect(() => {
-    axios.get("api/analytics/topskills", {
+    axios.get("https://life-long-learning-api.herokuapp.com/api/analytics/topskills", {
       headers: {
         "Content-Type": "application/json",
       }, params: { id: props.userId }
@@ -70,7 +70,7 @@ export default function HomePieGraphs(props) {
           return { maxStageSkill, maxProgressSkill, maxCompleteSkill, maxObjs }
         });
 
-        axios.get(`api/analytics/topskills/timeest/?array=[${maxStageSkill.skill_id}, ${maxProgressSkill.skill_id}, ${maxCompleteSkill.skill_id}]`)
+        axios.get(`https://life-long-learning-api.herokuapp.com/api/analytics/topskills/timeest/?array=[${maxStageSkill.skill_id}, ${maxProgressSkill.skill_id}, ${maxCompleteSkill.skill_id}]`)
           .then(timeResp => {
             timeResp.data.map((skill) => {
               if (skill.skill_id === maxStageSkill.skill_id && skill.status === "Staged") {

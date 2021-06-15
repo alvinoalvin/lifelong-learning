@@ -51,7 +51,7 @@ export default function CreateResourceForm(props) {
       create_date: new Date().toISOString()
     }
 
-    return axios.post(`/api/tasks`, newResource)
+    return axios.post(`https://life-long-learning-api.herokuapp.com/api/tasks`, newResource)
       .then(function(response) {
         newResource.id = response.data.result.id
         const resourceCopy = [...props.rows, newResource]

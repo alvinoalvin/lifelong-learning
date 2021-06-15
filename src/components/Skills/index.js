@@ -84,7 +84,7 @@ export default function SkillViewAll(props) {
       return 
     }
 
-    axios.get(`/api/skills/users/${userID}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/skills/users/${userID}`)
     .then(function(response) {
       setSkillList(response.data)
     })

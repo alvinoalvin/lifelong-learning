@@ -83,7 +83,7 @@ export default function Team(props) {
   const team_name = 'Engineering'
 
   useEffect(() => {
-    axios.get(`/api/teams/${teamID}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/teams/${teamID}`)
       .then(function(response) {
         setTeam(response.data)
       })

@@ -59,7 +59,7 @@ export default function CreateTaskForm(props) {
       create_date: new Date().toISOString()
     }
 
-    return axios.post(`/api/tasks`, newTask)
+    return axios.post(`https://life-long-learning-api.herokuapp.com/api/tasks`, newTask)
       .then(function(response) {
         newTask.id = response.data.result.id
         newTask.status = "In Progress"

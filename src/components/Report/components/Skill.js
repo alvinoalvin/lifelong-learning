@@ -74,7 +74,7 @@ export default function Skill(props) {
   const [totalTime, setTotalTime] = useState(0)
 
   useEffect(() => {
-    axios.get(`/api/skills/report/time/users/${props.userID}&${props.skill.skill_id}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/skills/report/time/users/${props.userID}&${props.skill.skill_id}`)
     .then(function(response) {
       const responseData = response.data
       let staged_time = 0;

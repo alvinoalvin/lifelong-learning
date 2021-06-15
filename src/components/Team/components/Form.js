@@ -80,7 +80,7 @@ export default function Form(props) {
       position: position
     }
 
-    return axios.post(`/api/teams/${team_id}`, newMember)
+    return axios.post(`https://life-long-learning-api.herokuapp.com/api/teams/${team_id}`, newMember)
     .then(function (response) {
       const teamCopy = [...props.team, newMember]
       props.setTeam(teamCopy)

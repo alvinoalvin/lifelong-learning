@@ -28,7 +28,7 @@ export default function LineGraph() {
 
   useEffect(() => {
     axios
-      .get("api/analytics/completion-rate", {
+      .get("https://life-long-learning-api.herokuapp.com/api/analytics/completion-rate", {
         headers: {
           "Content-Type": "application/json",
         },

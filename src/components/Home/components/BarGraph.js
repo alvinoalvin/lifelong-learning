@@ -27,7 +27,7 @@ export default function BarGraph() {
 
   useEffect(() => {
     axios
-      .get("api/analytics/skill-status", {
+      .get("https://life-long-learning-api.herokuapp.com/api/analytics/skill-status", {
         headers: {
           "Content-Type": "application/json",
         },

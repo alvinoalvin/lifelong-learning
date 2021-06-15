@@ -64,7 +64,7 @@ export default function StickyHeadTable(props) {
   const [deliverables, setDeliverables] = useState([]);
 
   useEffect(() => {
-    axios.get(`/api/deliverables/users/skills/${props.userID}&${props.skill.skill_id}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/deliverables/users/skills/${props.userID}&${props.skill.skill_id}`)
     .then(function(response) {
       setDeliverables(response.data)
     })

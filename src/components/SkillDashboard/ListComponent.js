@@ -65,7 +65,7 @@ export default function ListComponent(props) {
   };
 
   useEffect(() => {
-    axios.get(`/api/tasks/${props.userID}/${props.skillID}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/tasks/${props.userID}/${props.skillID}`)
       .then(response => {
         setRows(response.data);
       }).catch(error => console.log(error));

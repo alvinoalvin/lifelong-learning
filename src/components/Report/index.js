@@ -42,7 +42,7 @@ export default function Report(props) {
   document.title = "Reports";
   
   useEffect(() => {
-    axios.get(`/api/teams/${teamID}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/teams/${teamID}`)
       .then(function(response) {
         setTeam(response.data)
       })
@@ -52,7 +52,7 @@ export default function Report(props) {
   }, [teamID])
 
   useEffect(() => {
-    axios.get(`/api/csv/teams/${teamID}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/csv/teams/${teamID}`)
       .then(function(response) {
         setcsvData(response.data)
       })

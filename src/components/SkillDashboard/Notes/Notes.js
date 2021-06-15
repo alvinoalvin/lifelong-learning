@@ -37,7 +37,7 @@ export default function NotesList(props) {
   const inputRef = useRef("");
 
   useEffect(() => {
-    axios.get(`/api/notes/${props.userID}/${props.skillID}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/notes/${props.userID}/${props.skillID}`)
       .then(response => {
         const data = response.data.map(note => {
           note.key = note.id
@@ -55,7 +55,7 @@ export default function NotesList(props) {
       note: inputRef.current.lastChild.value,
     }
 
-    return axios.post(`/api/notes`, newNote)
+    return axios.post(`https://life-long-learning-api.herokuapp.com/api/notes`, newNote)
       .then(function(response) {
         const notesCopy = notes
         notesCopy.push(newNote)

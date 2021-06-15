@@ -45,7 +45,7 @@ export default function CustomProgressBar(props) {
     }
   }
   useEffect(() => {
-    axios.get(`/api/deliverables/counts/${props.userID}/${props.skillID}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/deliverables/counts/${props.userID}/${props.skillID}`)
       .then(response => {
         const data = response.data
 

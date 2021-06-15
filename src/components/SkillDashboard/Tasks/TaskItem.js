@@ -153,7 +153,7 @@ export default function TaskItem(props) {
   const classes = useStyles();
 
   useEffect(() => {
-    axios.get(`/api/status`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/status`)
       .then(response => {
         setStatusMap(response.data)
       }).catch(error => console.log(error));
@@ -195,7 +195,7 @@ export default function TaskItem(props) {
     });
     /* run axios api to update tasks on db here. */
     if (updateDb) {
-      return axios.post(`/api/tasks/${id}`, { task: row })
+      return axios.post(`https://life-long-learning-api.herokuapp.com/api/tasks/${id}`, { task: row })
         .then(function(response) {
           console.log(response)
         })

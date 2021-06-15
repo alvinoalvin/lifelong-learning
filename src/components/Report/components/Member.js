@@ -37,7 +37,7 @@ export default function Member(props) {
   const userID = id;
 
   useEffect(() => {
-    axios.get(`/api/skills/report/users/${props.member.id}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/skills/report/users/${props.member.id}`)
     .then(function(response) {
       setSkills(response.data)
     })

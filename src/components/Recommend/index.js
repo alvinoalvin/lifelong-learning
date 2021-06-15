@@ -107,7 +107,7 @@ export default function Recommend(props) {
   const [userList, setUserList] = useState([]);
 
   useEffect(() => {
-    axios.get(`/api/teams/${team_id}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/teams/${team_id}`)
     .then(function(response) {
       setUserList(response.data)
     })
@@ -125,7 +125,7 @@ export default function Recommend(props) {
   const [typeList, setTypeList] = useState([]);
 
   useEffect(() => {
-    axios.get(`/api/type`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/type`)
     .then(function(response) {
       setTypeList(response.data)
     })
@@ -147,7 +147,7 @@ export default function Recommend(props) {
       return 
     }
 
-    axios.get(`/api/skills/users/${userID}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/skills/users/${userID}`)
     .then(function(response) {
       setSkillList(response.data)
     })
@@ -174,7 +174,7 @@ export default function Recommend(props) {
       link: link
     }
 
-    return axios.post(`/api/deliverables`, newDeliverable)
+    return axios.post(`https://life-long-learning-api.herokuapp.com/api/deliverables`, newDeliverable)
     .catch(function (error) {
       console.log("ERROR: ", error);
     });

@@ -31,7 +31,7 @@ export default function SkillDashboard() {
   document.title = skill;
 
   useEffect(() => {
-    axios.get(`/api/skills`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/skills`)
       .then(response => {
         setSkill(response.data.find(x => x.id === parseInt(skillID)).name);
       }).catch(error => console.log(error));
@@ -39,21 +39,21 @@ export default function SkillDashboard() {
 
 
   useEffect(() => {
-    axios.get(`/api/tasks/${userID}/${skillID}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/tasks/${userID}/${skillID}`)
       .then(response => {
         setTasks(response.data);
       }).catch(error => console.log(error));
   }, [userID, skillID]);
 
   useEffect(() => {
-    axios.get(`/api/resources/${userID}/${skillID}`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/resources/${userID}/${skillID}`)
       .then(response => {
         setResources(response.data);
       }).catch(error => console.log(error));
   }, [userID, skillID]);
 
   useEffect(() => {
-    axios.get(`/api/deliverables/${userID}/${skillID}/staged`)
+    axios.get(`https://life-long-learning-api.herokuapp.com/api/deliverables/${userID}/${skillID}/staged`)
       .then(response => {
         setStagedDeliv(response.data);
       }).catch(error => console.log(error));
