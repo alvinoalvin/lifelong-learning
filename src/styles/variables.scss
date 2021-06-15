@@ -1,0 +1,48 @@
+
+
+
+
+
+:root {
+  // CSS Variables
+
+  // fonts
+  @import url('https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2:wght@400;600&family=Lato:wght@300;400&family=Roboto+Condensed:wght@400;700&display=swap');
+
+  --title-font:  'Baloo Tammudu 2', cursive;
+  --header-font: 'Roboto Condensed', sans-serif;
+  --text-font: 'Lato', serif; 
+
+  // color palette:
+  // https://coolors.co/91c4f2-576ab3-9d79bc-a14da0-7e1f86
+  --blue-light: #91C4F2;
+  --blue-dark: #576AB3;
+  --purple-light: #9D79BC;
+  --purple-medium: #c83cd0;
+  --purple-dark: #7E1F86;
+  
+  --paper: rgba(255,255,255,0.5);
+  --content: #eeeeee;
+  --drawer: #98bad8;
+  --nav: #0B315E;
+
+  --button: #c83cd0;
+  --button-hover: #c991fa;
+
+  --table-header: #c83cd0;
+  --table-body: #8d8d8d;
+
+  --white: #fff;
+  --border: rgb(117, 117, 117);
+
+  --border-radius: 15px;
+  --box-shadow: 5px 5px rgb(114, 114, 114);
+  --border-color: rgb(100, 100, 100);
+  --border: 1px solid rgb(100, 100, 100);
+
+  --container-padding: 3rem 2rem;
+}
+
+
+
+

@@ -1,0 +1,149 @@
+@import "./variables.scss";
+
+@mixin areaBorder($area) {
+  grid-area: $area;
+  margin: 0;
+  max-width: 45vw;
+}
+
+#skill-item-container {
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "progress progress"
+    "staging notes"
+    "taskList resources";
+  padding: 3rem 6rem;
+
+  a {
+    color: rgb(95, 95, 95) !important;
+    text-decoration: underline !important;
+  }
+
+  #dashboardHeader {
+    @include areaBorder(header);
+
+    h1 {
+      font-family: var(--header-font) !important;
+      font-weight: 700 !important;
+      font-size: 35px !important;
+    }
+
+  }
+  
+
+  .tasks {
+    @include areaBorder(taskList);
+    margin-right: 1rem;
+
+    .list-component .MuiInputBase-input {
+      padding-right: 2rem;
+    }
+
+    .MuiInputBase-input {
+      padding: 0;
+    }
+
+  }
+
+  .staging {
+    @include areaBorder(staging);
+    margin-right: 1rem;
+
+    .flexcontainer {
+      display: flex;
+      flex-direction: row;
+
+      .divItem2 {
+        padding: 12px;
+        margin-left: 30px;
+      }
+      .divItem1 {
+        padding: 12px;
+        width: 100px;
+        margin: auto;
+        margin-left: 40px;
+        margin-right: 0;
+      }
+    }
+  }
+
+  .progressCont {
+    min-height: 100px;
+    grid-area: progress;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-right: 1rem;
+    .progress-bar {
+      font-weight: bolder;
+    }
+
+    .progress {
+      height: 2rem;
+    }
+  }
+
+  .notes {
+    @include areaBorder(notes);
+    height: 500px;
+    margin-left: 1rem;
+    .MuiCardActions-root {
+      padding: 25px;
+      padding-top: 8px;
+    }
+  }
+
+  .resources {
+    @include areaBorder(resources);
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 1250px) {
+  @mixin areaBorder($area) {
+    grid-area: $area;
+    margin: 10px 0;
+    max-width: 100vw;
+    width: 100%;
+    min-height: 100px;
+  }
+
+  #skill-item-container {
+    grid-template-areas:
+      "header "
+      "progress"
+      "taskList"
+      "resources"
+      "notes"
+      "staging";
+
+    .header {
+      @include areaBorder(header);
+    }
+    .tasks {
+      @include areaBorder(taskList);
+      max-width: 100%;
+    }
+
+    .progressCont {
+      @include areaBorder(progress);
+    }
+    .notes {
+      @include areaBorder(notes);
+    }
+    .resources {
+      @include areaBorder(resources);
+      max-width: 100%;
+    }
+    .staging {
+      @include areaBorder(staging);
+    }
+  }
+}
+@media(max-width:1024px){
+  #skill-item-container{
+    
+  width:100%;
+  margin:auto;
+  }
+}
