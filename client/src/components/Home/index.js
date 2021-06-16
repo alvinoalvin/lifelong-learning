@@ -10,14 +10,13 @@ import BarGraph from "./components/BarGraph";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    height: "100%",
     padding: theme.spacing(4),
   },
   paper: {
     textAlign: "center",
     color: theme.palette.text.secondary,
-    height: "100%",
     padding: "30px",
+    height: "500px",
   },
 }));
 
@@ -31,7 +30,7 @@ export default function CenteredGrid() {
   return (
     <div className={classes.root}>
       <br />
-      <Grid container spacing={10}>
+      <Grid container spacing={8}>
         <HomePieGraphs userId={userId} />
         <Grid item xs={6}>
           <Paper className={classes.paper}>
