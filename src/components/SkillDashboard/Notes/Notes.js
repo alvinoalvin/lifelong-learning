@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Card, CardActions, CardContent, Button, Input, Typography } from '@material-ui/core';
+import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
+import TextField from '@material-ui/core/TextField';
+
 import "../../../styles/variables.scss";
 
 const useStyles = makeStyles({
@@ -26,6 +28,13 @@ const useStyles = makeStyles({
   container: {
     padding: '3rem 2rem',
   },
+  submit: {
+    backgroundColor:  'var(--button)',
+    '&:hover': {
+      backgroundColor: 'var(--button-hover)',
+      color: '#fff',
+    },
+  }
 });
 
 /* Libraries */
@@ -34,7 +43,7 @@ const axios = require('axios');
 export default function NotesList(props) {
   const classes = useStyles();
   const [notes, setNotes] = useState("");
-  const inputRef = useRef("");
+  const [newNoteInput, setNewNoteInput] = useState("");
 
   useEffect(() => {
     axios.get(`/api/notes/${props.userID}/${props.skillID}`)
@@ -52,7 +61,7 @@ export default function NotesList(props) {
     const newNote = {
       user_id: props.userID,
       skill_id: props.skillID,
-      note: inputRef.current.lastChild.value,
+      note: newNoteInput,
     }
 
     return axios.post(`/api/notes`, newNote)
@@ -91,8 +100,8 @@ export default function NotesList(props) {
           Notes
           </Typography>
           {Object.keys(notes).map((id) => {
-            return (<>
-              <div>
+            return (
+              <div key={id}>
                 <IconButton
                   className={classes.icon}
                   aria-label="delete"
@@ -105,13 +114,27 @@ export default function NotesList(props) {
                 </IconButton>
                 {notes[id].note}
               </div>
-            </>
             )
           })}
       </CardContent>
       <CardActions>
-        <Input ref={inputRef} />
-        <Button size="small" onClick={() => { addNote() }}>add Note</Button>
+        <form className={classes.root} noValidate autoComplete="off">
+          <TextField 
+            id="standard-basic" 
+            value={newNoteInput}
+            label="Standard"
+            onChange={(event) => setNewNoteInput(event.target.value)}
+          />
+        </form>
+        <Button 
+          className={classes.submit}
+          size="small" 
+          onClick={() => { 
+            addNote()
+            setNewNoteInput('') 
+          }}>
+          Add Note
+        </Button>
       </CardActions>
     </Card>
   );

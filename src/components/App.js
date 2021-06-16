@@ -78,10 +78,9 @@ export default function Application() {
               <MenuIcon />
             </IconButton>
             <div className='website-info-container'>
-              
-              <img alt="logo" src="images/LLogo.svg" height />
-            
-              {/* <Typography variant="h4" noWrap id='website-logo'> Life Long Learning</Typography> */}
+            <Link to="/">
+              <img alt="logo" src="images/LLogo.svg"/>
+            </Link>
               <div className='user-container'>
                 <div className='user-info-container'>
                   <Typography noWrap align='right' id='user-name'>{first_name+' '+last_name}</Typography>

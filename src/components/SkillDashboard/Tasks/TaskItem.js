@@ -87,7 +87,6 @@ const CustomTableCell = ({ row, name, onChange, attr, type, input }) => {
   return (
     <TableCell align="left" className={classes.tableCell}
       component="th"
-      padding="2px"
     >
       {isEditMode ? (
         <>

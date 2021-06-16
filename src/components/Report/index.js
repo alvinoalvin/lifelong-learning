@@ -67,7 +67,6 @@ export default function Report(props) {
       <Member
       key={member.id}
       member={member}
-      setTeam={setTeam}
       team={team}
       />
     )

@@ -137,7 +137,7 @@ export default function HomePieGraphs(props) {
               <Paper className={classes.paper}>
                 <h3>{labels[index]}</h3>
                 <h5>{data[skill_id].name}</h5>
-                <h7>Total Skill Time: {data[skill_id].total_time}hrs</h7>
+                <h6>Total Skill Time: {data[skill_id].total_time}hrs</h6>
                 <Doughnut key={index} data={data[skill_id].chartData} />
               </Paper>
             </div>

@@ -326,6 +326,12 @@ export default function Recommend(props) {
                 .then(function(response) {
                   setAlert({message: 'Submit Success!', severity: 'success'})
                   setSnack(true)
+                  setUserID('')
+                  setSkill('')
+                  setType('')
+                  setDeliverableName('')
+                  setTime('')
+                  setLink('')
                 })
                 .catch(function (error) {
                   console.log(error);
