@@ -23,7 +23,7 @@ export default function SkillDashboard() {
 
   const userID = id;
 
-  const [skill, setSkill] = React.useState("");
+  const [skill, setSkill] = useState("");
   const [resources, setResources] = useState([]);
   const [tasks, setTasks] = useState([]);
   const [stagedDeliv, setStagedDeliv] = useState([]);

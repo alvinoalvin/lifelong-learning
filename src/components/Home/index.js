@@ -36,7 +36,7 @@ export default function CenteredGrid() {
         <Grid item xs={6}>
           <Paper className={classes.paper}>
             <h3>Progress this week</h3>
-            <h7>Number of Tasks</h7>
+            <h6>Number of Tasks</h6>
             <BarGraph />
           </Paper>
         </Grid>

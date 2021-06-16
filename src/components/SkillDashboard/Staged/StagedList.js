@@ -94,7 +94,7 @@ export default function StagedList(props) {
           </Typography>
         <div className={classes.pos} >
           {Object.keys(stagedDeliv).map((id, index) => {
-            return (<>
+            return (
               <div key={index} className="flexcontainer">
                 <IconButton
                   className={classes.icon}
@@ -120,7 +120,6 @@ export default function StagedList(props) {
                   <div className="divItem2">{stagedDeliv[id].name}</div>)
                 }
               </div>
-            </>
             )
           })}
         </div>
