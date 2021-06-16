@@ -160,7 +160,7 @@ export default function TaskItem(props) {
   }, []);
 
   function deleteTask(id) {
-    return axios.delete(`api/deliverables/?array=[${id}]`, { id })
+    return axios.delete(`https://life-long-learning-api.herokuapp.com/api/deliverables/?array=[${id}]`, { id })
       .then(function(response) {
         const taskCopy = rows.filter((task) => {
           if (task.id !== row.id) {

@@ -59,7 +59,7 @@ export default function ResourceItem(props) {
   const classes = useStyles();
 
   function deleteResource(id) {
-    return axios.delete(`api/deliverables/?array=[${id}]`, { id })
+    return axios.delete(`https://life-long-learning-api.herokuapp.com/api/deliverables/?array=[${id}]`, { id })
       .then(function(response) {
         const resourceCopy = rows.filter((resource) => {
           if (resource.id !== props.row.id) {
@@ -95,7 +95,9 @@ export default function ResourceItem(props) {
     });
     /* run axios api to update tasks on db here. */
     if (updateDb) {
-      return axios.post(`api/tasks/${id}`, { task: row })
+      // return axios.post(`https://life-long-learning-api.herokuapp.com/api/tasks/${id}`, { task: row })
+      console.log(row)
+      return axios.post(`https://life-long-learning-api.herokuapp.com/api/update/task`, { task: row })
         .then(function(response) {
         })
         .catch(function(error) {

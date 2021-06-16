@@ -45,7 +45,7 @@ export default function NotesList(props) {
         })
         setNotes(data);
       })
-      .catch(error => console.log(error));
+      .catch(error => console.log(error));  
   }, [notes, props.skillID, props.userID]);
 
   function addNote() {
@@ -68,7 +68,7 @@ export default function NotesList(props) {
 
 
   function deleteNote(id) {
-    return axios.delete(`api/notes/${id}`, { id })
+    return axios.delete(`https://life-long-learning-api.herokuapp.com/api/notes/${id}`, { id })
       .then(function(response) {
         const noteCopy = notes.filter((note) => {
           if (note.id !== id) {

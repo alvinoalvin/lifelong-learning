@@ -22,7 +22,7 @@ export default function ResourceListComponent(props) {
   ];
 
   const handleDelete = (selected, setSelected, resources, setResources) => {
-    return axios.delete(`api/deliverables/?array=[${selected.toString()}]`, {})
+    return axios.delete(`https://life-long-learning-api.herokuapp.com/api/deliverables/?array=[${selected.toString()}]`, {})
       .then(function(response) {
         const resourceCopy = resources.filter((resource) => {
           if (!selected.includes(resource.id)) {

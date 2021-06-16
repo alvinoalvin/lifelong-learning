@@ -46,7 +46,7 @@ export default function StagedList(props) {
   const { stagedDeliv, setStagedDeliv, tasks, resources } = props
 
   function addStaged(stageItem) {
-    return axios.post(`api/deliverables/staging/${stageItem.id}`, { stageItem })
+    return axios.post(`https://life-long-learning-api.herokuapp.com/api/deliverables/staging/${stageItem.id}`, { stageItem })
       .then(function(response) {
         const stagedCopy = stagedDeliv.filter((staged) => {
           if (staged.id !== stageItem.id) {
@@ -71,7 +71,7 @@ export default function StagedList(props) {
   }
 
   function deleteStaged(stageItem) {
-    return axios.delete(`api/deliverables/?array=[${stageItem.id}]`, { stageItem })
+    return axios.delete(`https://life-long-learning-api.herokuapp.com/api/deliverables/?array=[${stageItem.id}]`, { stageItem })
       .then(function(response) {
         const stagedCopy = stagedDeliv.filter((staged) => {
           if (staged.id !== stageItem.id) {

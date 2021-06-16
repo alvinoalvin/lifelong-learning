@@ -29,10 +29,11 @@
     "react-scripts": "^4.0.3"
   },
   "scripts": {
-    "start": "set PORT=3006 && react-scripts start",
-    "build": "set PORT=3006 && react-scripts build",
-    "test": "set PORT=3006 && react-scripts test",
-    "eject": "set PORT=3006 && react-scripts eject"
+    "start-client": "react-scripts start",
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

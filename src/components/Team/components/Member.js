@@ -14,7 +14,7 @@ export default function Member(props) {
   const userID = id;
 
   function deleteMember(id) {
-    return axios.delete(`api/users/${id}`, {id})
+    return axios.delete(`https://life-long-learning-api.herokuapp.com/api/users/${id}`, {id})
     .then(function (response) {
       const teamCopy = [...props.team];
       for (let member of teamCopy) {

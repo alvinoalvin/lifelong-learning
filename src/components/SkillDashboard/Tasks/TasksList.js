@@ -26,7 +26,7 @@ export default function TasksList(props) {
   ];
 
   const handleDelete = (selected, setSelected, tasks, setTasks) => {
-    return axios.delete(`api/deliverables/?array=[${selected.toString()}]`, {})
+    return axios.delete(`https://life-long-learning-api.herokuapp.com/api/deliverables/?array=[${selected.toString()}]`, {})
       .then(function(response) {
         const taskCopy = tasks.filter((task) => {
           if (!selected.includes(task.id)) {

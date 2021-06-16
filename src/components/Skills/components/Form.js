@@ -69,7 +69,7 @@ export default function Form(props) {
       skill_name: skillName
     }
 
-    axios.post(`api/skills/users/${user_id}`, newSkill)
+    axios.post(`https://life-long-learning-api.herokuapp.com/api/skills/users/${user_id}`, newSkill)
     .then(function(response) {
       console.log(response)
     })
