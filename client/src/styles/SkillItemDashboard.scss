@@ -28,9 +28,10 @@
       font-weight: 700 !important;
       font-size: 35px !important;
     }
-
   }
-  
+  input#date-picker-inline {
+    height: 36px;
+  }
 
   .tasks {
     @include areaBorder(taskList);
@@ -43,7 +44,6 @@
     .MuiInputBase-input {
       padding: 0;
     }
-
   }
 
   .staging {
@@ -140,10 +140,9 @@
     }
   }
 }
-@media(max-width:1024px){
-  #skill-item-container{
-    
-  width:100%;
-  margin:auto;
+@media (max-width: 1024px) {
+  #skill-item-container {
+    width: 100%;
+    margin: auto;
   }
 }

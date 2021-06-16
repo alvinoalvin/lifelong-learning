@@ -88,7 +88,7 @@ export default function StagedList(props) {
 
   return (
     <Card className={classes.root}>
-      <CardContent className={classes.container} style={{ height: 418, overflow: 'auto' }}>
+      <CardContent className={classes.container} style={{ height: 435, overflow: 'auto' }}>
         <Typography gutterBottom variant="h6" component="h4">
           Tasks/Resource Staging
           </Typography>
