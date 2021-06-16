@@ -34,7 +34,9 @@ const useStyles = makeStyles((theme) => ({
     border: '2px solid #000',
     boxShadow: theme.shadows[5],
     padding: theme.spacing(2, 4, 3),
-    height:"500px"
+    height:"500px",
+    borderRadius: '15px',
+    paddingTop: '4rem',
   },
   dialogPaper: {
     height: '400px'

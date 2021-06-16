@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   pieContainer: {
-    margin: "15px, 15px, 15px"
+    margin: "15px 15px 15px"
   }
 
 }));
@@ -35,7 +35,7 @@ export default function HomePieGraphs(props) {
   const history = useHistory();
   const labels = [
     "Most Completed Tasks",
-    "Most Progress Tasks",
+    "Most In Progress Tasks",
     "Most Staged Tasks",]
 
   function handleClick(id) {
@@ -126,7 +126,7 @@ export default function HomePieGraphs(props) {
   return (
     <div className={classes.root}>
 
-      <Grid container spacing={6}>
+      <Grid container spacing={3}>
         {Object.keys(data).map((skill_id, index) => (
           <Grid key={index} item xs={4}>
             <div

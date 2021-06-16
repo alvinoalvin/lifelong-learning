@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react';
+import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { Card, CardActions, CardContent, Button, Typography } from '@material-ui/core';
 import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import TextField from '@material-ui/core/TextField';
+import { purple } from "@material-ui/core/colors";
 
 import "../../../styles/variables.scss";
 
@@ -29,6 +30,8 @@ const useStyles = makeStyles({
     padding: '3rem 2rem',
   },
   submit: {
+    color: 'white',
+    fontFamily: 'var(--header-font)',
     backgroundColor: 'var(--button)',
     '&:hover': {
       backgroundColor: 'var(--button-hover)',
@@ -39,6 +42,13 @@ const useStyles = makeStyles({
 
 /* Libraries */
 const axios = require('axios');
+
+const theme = createMuiTheme({
+  palette: {
+    primary: purple,
+  }
+});
+
 
 export default function NotesList(props) {
   const classes = useStyles();
@@ -118,23 +128,25 @@ export default function NotesList(props) {
         })}
       </CardContent>
       <CardActions>
-        <form className={classes.root} noValidate autoComplete="off">
-          <TextField
-            id="standard-basic"
-            value={newNoteInput}
-            label="Standard"
-            onChange={(event) => setNewNoteInput(event.target.value)}
-          />
-        </form>
-        <Button
-          className={classes.submit}
-          size="small"
-          onClick={() => {
-            addNote()
-            setNewNoteInput('')
-          }}>
-          Add Note
-        </Button>
+        <ThemeProvider theme={theme}>
+          <form className={classes.root} noValidate autoComplete="off">
+            <TextField
+              id="standard-basic"
+              value={newNoteInput}
+              label="New Note"
+              onChange={(event) => setNewNoteInput(event.target.value)}
+            />
+          </form>
+          <Button
+            className={classes.submit}
+            size="small"
+            onClick={() => {
+              addNote()
+              setNewNoteInput('')
+            }}>
+            Add Note
+          </Button>
+        </ThemeProvider>
       </CardActions>
     </Card>
   );
