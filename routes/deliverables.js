@@ -60,7 +60,6 @@ module.exports = db => {
   router.post("/tasks/:task_id", (request, response) => {
     const { name, status_id, link, due_date, time_estimate_minutes, end_date } = request.body.task
     const values = [request.params.task_id, name, status_id, link, due_date, time_estimate_minutes, end_date]
-    console.log(request.body)
     const queryString =
       `
     update deliverables SET
@@ -84,7 +83,6 @@ module.exports = db => {
   router.post("/update/task", (request, response) => {
     const { id, name, status_id, link, due_date, time_estimate_minutes, end_date } = request.body.task
     const values = [id, name, status_id, link, due_date, time_estimate_minutes, end_date]
-    console.log(request.body)
     const queryString =
       `
     update deliverables SET
@@ -262,8 +260,7 @@ module.exports = db => {
     const { creator, assigned_to, skill_id, status_id, time_estimate_minutes, type_id, name, link } = request.body
 
     const values = [creator, assigned_to, skill_id, status_id, time_estimate_minutes, type_id, name, link]
-
-    const queryString = `INSERT INTO deliverables(creator, assigned_to, skill_id, status_id, time_estimate_minutes, type_id, name, notes, create_date)
+    const queryString = `INSERT INTO deliverables(creator, assigned_to, skill_id, status_id, time_estimate_minutes, type_id, name, link, create_date)
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, NOW())`
     try {
       db.query(queryString, values)
@@ -304,7 +301,6 @@ module.exports = db => {
       `, [id]
       )
         .then(({ rows: deliverables }) => {
-          console.log(response)
           response.json(deliverables);
         }).catch((err) => {
           console.log(err.message)
