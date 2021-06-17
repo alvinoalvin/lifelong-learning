@@ -49,7 +49,6 @@ module.exports = (db) => {
   });
 
   router.get("/analytics/topskills", (request, response) => {
-    console.log(request.query)
     try {
       db.query(
         `
@@ -77,7 +76,6 @@ module.exports = (db) => {
   });
 
   router.get("/analytics/topskills/timeest", (request, response) => {
-    console.log(request.query)
     const arr = JSON.parse(request.query.array);
     let paramStr = "(";
     for (let i = 1; i <= arr.length; i++) {

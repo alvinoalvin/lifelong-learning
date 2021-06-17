@@ -99,7 +99,6 @@ export default function CreateTaskForm(props) {
     const newDate = new Date(dueDate)
 
     if (newDate < new Date() && newDate) {
-      console.log(newDate,":", new Date())
       setAlert({ message: 'That date has already passed!', severity: 'warning'})
       return false
     }

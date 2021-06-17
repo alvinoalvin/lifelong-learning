@@ -196,7 +196,6 @@ export default function TaskItem(props) {
     if (updateDb) {
       return axios.post(`api/tasks/${id}`, { task: row })
         .then(function(response) {
-          console.log(response)
         })
         .catch(function(error) {
           console.log(error);
@@ -249,7 +248,6 @@ export default function TaskItem(props) {
         let end_date = null;
         if (value === 3) {
           end_date = new Date().toISOString()
-          console.log(end_date)
         } 
 
         return {

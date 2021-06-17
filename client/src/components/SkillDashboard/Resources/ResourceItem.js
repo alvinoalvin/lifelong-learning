@@ -96,7 +96,6 @@ export default function ResourceItem(props) {
     /* run axios api to update tasks on db here. */
     if (updateDb) {
       // return axios.post(`api/tasks/${id}`, { task: row })
-      console.log(row)
       return axios.post(`api/update/task`, { task: row })
         .then(function(response) {
         })

@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { authContext } from '../../providers/AuthProvider';
 
 import Avatar from '@material-ui/core/Avatar';
@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor:  'var(--button)',
+    backgroundColor: 'var(--button)',
   },
   form: {
     width: '90%', // Fix IE 11 issue.
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
   },
   submit: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor:  'var(--button)',
+    backgroundColor: 'var(--button)',
     '&:hover': {
       backgroundColor: 'var(--button-hover)',
       color: '#fff',
@@ -108,12 +108,12 @@ export default function Recommend(props) {
 
   useEffect(() => {
     axios.get(`api/teams/${team_id}`)
-    .then(function(response) {
-      setUserList(response.data)
-    })
-    .catch(function (error) {
-      console.log("ERROR: ", error);
-    });
+      .then(function(response) {
+        setUserList(response.data)
+      })
+      .catch(function(error) {
+        console.log("ERROR: ", error);
+      });
   }, [team_id]);
 
   const userChoice = userList.map(userInfo => {
@@ -126,12 +126,12 @@ export default function Recommend(props) {
 
   useEffect(() => {
     axios.get(`api/type`)
-    .then(function(response) {
-      setTypeList(response.data)
-    })
-    .catch(function (error) {
-      console.log("ERROR: ", error);
-    });
+      .then(function(response) {
+        setTypeList(response.data)
+      })
+      .catch(function(error) {
+        console.log("ERROR: ", error);
+      });
   }, []);
 
   const typeChoice = typeList.map(typeInfo => {
@@ -144,18 +144,18 @@ export default function Recommend(props) {
 
   useEffect(() => {
     if (!userID) {
-      return 
+      return
     }
 
     axios.get(`api/skills/users/${userID}`)
-    .then(function(response) {
-      setSkillList(response.data)
-    })
-    .catch(function (error) {
-      console.log("ERROR: ", error);
-    });
+      .then(function(response) {
+        setSkillList(response.data)
+      })
+      .catch(function(error) {
+        console.log("ERROR: ", error);
+      });
   }, [userID])
-  
+
   const skillChoice = skillList.map(skillInfo => {
     return (
       <MenuItem key={skillInfo.skill_id} value={skillInfo.skill_id}>{skillInfo.name}</MenuItem>
@@ -174,176 +174,177 @@ export default function Recommend(props) {
       link: link
     }
 
+    console.log(newDeliverable)
     return axios.post(`api/deliverables`, newDeliverable)
-    .catch(function (error) {
-      console.log("ERROR: ", error);
-    });
+      .catch(function(error) {
+        console.log("ERROR: ", error);
+      });
   }
 
   function checkRec() {
     if (!userID) {
-      setAlert({ message: 'Please pick a user!', severity: 'warning'})
+      setAlert({ message: 'Please pick a user!', severity: 'warning' })
       return false
     }
-  
+
     if (!type) {
-      setAlert({ message: 'Please pick a type!', severity: 'warning'})
+      setAlert({ message: 'Please pick a type!', severity: 'warning' })
       return false
     }
-  
+
     if (!skill) {
-      setAlert({ message: 'Please pick a skill!', severity: 'warning'})
+      setAlert({ message: 'Please pick a skill!', severity: 'warning' })
       return false
     }
-  
+
     if (!deliverableName) {
-      setAlert({ message: 'Please enter a description', severity: 'warning'})
+      setAlert({ message: 'Please enter a description', severity: 'warning' })
       return false
     }
-  
+
     if (!time) {
-      setAlert({ message: 'Please enter an estimated time', severity: 'warning'})
+      setAlert({ message: 'Please enter an estimated time', severity: 'warning' })
       return false
     }
-  
+
     if (isNaN(Number(time))) {
-      setAlert({ message: 'Please enter a number', severity: 'error'})
+      setAlert({ message: 'Please enter a number', severity: 'error' })
       return false
     }
-  
+
     return true;
   };
 
   return (
     <>
-    <Container component="section">
-      <CssBaseline />
-      <div className={classes.paper}>
-        <Avatar className={classes.avatar}>
-          <ShareIcon />
-        </Avatar>
-        <Typography component="h1" variant="h5">
-          Make a recommendation
+      <Container component="section">
+        <CssBaseline />
+        <div className={classes.paper}>
+          <Avatar className={classes.avatar}>
+            <ShareIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            Make a recommendation
         </Typography>
-        <form className={classes.form} noValidate>
-          <ThemeProvider theme={theme}>
-            <div className='recommend-selector'>
-              <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-helper-label">Name</InputLabel>
-                <Select
-                  labelId="demo-simple-select-helper-label"
-                  id="demo-simple-select-helper"
-                  value={userID}
-                  onChange={(event) => {
-                    setUserID(event.target.value)
-                    setSkill('')
-                  }}
-                >
-                  {userChoice}
-                </Select>
-                <FormHelperText>Team Member</FormHelperText>
-              </FormControl>
-              <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-helper-label">Type</InputLabel>
-                <Select
-                  labelId="demo-simple-select-helper-label"
-                  id="demo-simple-select-helper"
-                  value={type}
-                  onChange={(event) => setType(event.target.value)}
-                >
-                  {typeChoice}
-                </Select>
-                <FormHelperText>Task/Resource</FormHelperText>
-              </FormControl>
-              <FormControl className={classes.formControl}>
-                <InputLabel id="demo-simple-select-helper-label">Skill</InputLabel>
-                <Select
-                  labelId="demo-simple-select-helper-label"
-                  id="demo-simple-select-helper"
-                  value={skill? skill : ''}
-                  onChange={(event) => {
-                    setSkill(event.target.value)
-                  }
-                  }
-                >
-                  <MenuItem value="">
-                    <em>None</em>
-                  </MenuItem>
-                  {skillChoice}
-                </Select>
-                <FormHelperText>Skill Name</FormHelperText>
-              </FormControl>
-            </div>
-            <TextField
-              className={classes.form}
-              autoComplete="dname"
-              fullWidth
-              name="deliverableName"
-              variant="outlined"
-              required
-              id="deliverableName"
-              label="Deliverable Name"
-              autoFocus
-              value={deliverableName}
-              onChange={(event) => setDeliverableName(event.target.value)}
-            />
-            {/* change to only take in number */}
-            <TextField
-              className={classes.form}
-              variant="outlined"
-              fullWidth
-              required
-              id="time"
-              label="Time Estimate (mins)"
-              name="time"
-              autoComplete="time"
-              value={time}
-              onChange={(event) => setTime(event.target.value)}
-            />
-            <TextField
-              className={classes.form}
-              variant="outlined"
-              fullWidth
-              id="deliverableLink"
-              label="Link"
-              name="deliverableLink"
-              autoComplete="dlink"
-              value={link}
-              onChange={(event) => setLink(event.target.value)}
-            />
-          </ThemeProvider>
-          <Button
-            type="submit"
-            variant="contained"
-            color="primary"
-            className={classes.submit}
-            onClick={(event) => {
-              event.preventDefault()
-              if(!checkRec()) {
-                setSnack(true)
-              } else {
-                addDeliverable()
-                .then(function(response) {
-                  setAlert({message: 'Submit Success!', severity: 'success'})
+          <form className={classes.form} noValidate>
+            <ThemeProvider theme={theme}>
+              <div className='recommend-selector'>
+                <FormControl className={classes.formControl}>
+                  <InputLabel id="demo-simple-select-helper-label">Name</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-helper-label"
+                    id="demo-simple-select-helper"
+                    value={userID}
+                    onChange={(event) => {
+                      setUserID(event.target.value)
+                      setSkill('')
+                    }}
+                  >
+                    {userChoice}
+                  </Select>
+                  <FormHelperText>Team Member</FormHelperText>
+                </FormControl>
+                <FormControl className={classes.formControl}>
+                  <InputLabel id="demo-simple-select-helper-label">Type</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-helper-label"
+                    id="demo-simple-select-helper"
+                    value={type}
+                    onChange={(event) => setType(event.target.value)}
+                  >
+                    {typeChoice}
+                  </Select>
+                  <FormHelperText>Task/Resource</FormHelperText>
+                </FormControl>
+                <FormControl className={classes.formControl}>
+                  <InputLabel id="demo-simple-select-helper-label">Skill</InputLabel>
+                  <Select
+                    labelId="demo-simple-select-helper-label"
+                    id="demo-simple-select-helper"
+                    value={skill ? skill : ''}
+                    onChange={(event) => {
+                      setSkill(event.target.value)
+                    }
+                    }
+                  >
+                    <MenuItem value="">
+                      <em>None</em>
+                    </MenuItem>
+                    {skillChoice}
+                  </Select>
+                  <FormHelperText>Skill Name</FormHelperText>
+                </FormControl>
+              </div>
+              <TextField
+                className={classes.form}
+                autoComplete="dname"
+                fullWidth
+                name="deliverableName"
+                variant="outlined"
+                required
+                id="deliverableName"
+                label="Deliverable Name"
+                autoFocus
+                value={deliverableName}
+                onChange={(event) => setDeliverableName(event.target.value)}
+              />
+              {/* change to only take in number */}
+              <TextField
+                className={classes.form}
+                variant="outlined"
+                fullWidth
+                required
+                id="time"
+                label="Time Estimate (mins)"
+                name="time"
+                autoComplete="time"
+                value={time}
+                onChange={(event) => setTime(event.target.value)}
+              />
+              <TextField
+                className={classes.form}
+                variant="outlined"
+                fullWidth
+                id="deliverableLink"
+                label="Link"
+                name="deliverableLink"
+                autoComplete="dlink"
+                value={link}
+                onChange={(event) => {setLink(event.target.value) }}
+              />
+            </ThemeProvider>
+            <Button
+              type="submit"
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={(event) => {
+                event.preventDefault()
+                if (!checkRec()) {
                   setSnack(true)
-                  setUserID('')
-                  setSkill('')
-                  setType('')
-                  setDeliverableName('')
-                  setTime('')
-                  setLink('')
-                })
-                .catch(function (error) {
-                  console.log(error);
-                });
-              }
-            }}
-          >
-            Submit
+                } else {
+                  addDeliverable()
+                    .then(function(response) {
+                      setAlert({ message: 'Submit Success!', severity: 'success' })
+                      setSnack(true)
+                      setUserID('')
+                      setSkill('')
+                      setType('')
+                      setDeliverableName('')
+                      setTime('')
+                      setLink('')
+                    })
+                    .catch(function(error) {
+                      console.log(error);
+                    });
+                }
+              }}
+            >
+              Submit
           </Button>
-        </form>
-      </div>
-    </Container>
+          </form>
+        </div>
+      </Container>
       <Snackbar
         anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
         open={snack}
