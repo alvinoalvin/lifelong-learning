@@ -78,15 +78,15 @@ export default function Application() {
               <MenuIcon />
             </IconButton>
             <div className='website-info-container'>
-            <Link to="/">
-              <img alt="logo" src="images/LLogo.svg"/>
-            </Link>
+              <Link to="/">
+                <img alt="logo" src="images/LLogo.svg" />
+              </Link>
               <div className='user-container'>
                 <div className='user-info-container'>
-                  <Typography noWrap align='right' id='user-name'>{first_name+' '+last_name}</Typography>
+                  <Typography noWrap align='right' id='user-name'>{first_name + ' ' + last_name}</Typography>
                   <Typography noWrap align='right' id='user-position'>{position}</Typography>
                 </div>
-                <FontAwesomeIcon id='user-icon' icon={faUserAstronaut} size="3x"/>
+                <FontAwesomeIcon id='user-icon' icon={faUserAstronaut} size="3x" />
               </div>
             </div>
 
@@ -105,7 +105,7 @@ export default function Application() {
               [classes.drawerClose]: !open,
             }),
           }}
-          
+
         >
           <div className={classes.toolbar}>
             <IconButton onClick={handleDrawerClose}>
@@ -120,10 +120,10 @@ export default function Application() {
                 <ListItemText disableTypography className='tab-item' primary='Home'></ListItemText>
               </ListItem>
             </Link>
-            <Link to="/report">
+            <Link to="/allSkills">
               <ListItem>
-                <ListItemIcon><AssessmentIcon /></ListItemIcon>
-                <ListItemText disableTypography className='tab-item' primary='Report'></ListItemText>
+                <ListItemIcon><MenuBookIcon /></ListItemIcon>
+                <ListItemText disableTypography className='tab-item' primary='All Skills'></ListItemText>
               </ListItem>
             </Link>
             <Link to="/recommend">
@@ -131,11 +131,11 @@ export default function Application() {
                 <ListItemIcon><ShareIcon /></ListItemIcon>
                 <ListItemText disableTypography className='tab-item' primary='Recommend'></ListItemText>
               </ListItem>
-              </Link>
-              <Link to="/allSkills">
+            </Link>
+            <Link to="/report">
               <ListItem>
-                <ListItemIcon><MenuBookIcon /></ListItemIcon>
-                <ListItemText  disableTypography className='tab-item' primary='All Skills'></ListItemText>
+                <ListItemIcon><AssessmentIcon /></ListItemIcon>
+                <ListItemText disableTypography className='tab-item' primary='Report'></ListItemText>
               </ListItem>
             </Link>
             <Link to="/team">
@@ -144,12 +144,12 @@ export default function Application() {
                 <ListItemText disableTypography className='tab-item' primary='Team'></ListItemText>
               </ListItem>
             </Link>
-              <Divider />
+            <Divider />
           </List>
         </Drawer>
 
         <main className={classes.content}>
-        <div className={classes.toolbar} />
+          <div className={classes.toolbar} />
           <Switch>
             <Route path="/team">
               <Team />
@@ -161,7 +161,7 @@ export default function Application() {
               <Report />
             </Route>
             <Route path="/allSkills">
-              <Skills/>
+              <Skills />
             </Route>
             <Route path="/recommend">
               <Recommend />
