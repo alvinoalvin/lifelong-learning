@@ -67,7 +67,7 @@ export default function CustomProgressBar(props) {
       <Card className={classes.root}>
         <CardContent>
           <Typography gutterBottom variant="h6" component="h4">
-            Progress
+            Tasks Progress
           </Typography>
           <ProgressBar>
             <ProgressBar striped variant="" now={getPercent(stagedCount, totalCount, false)} key={1} label={`Staging ${getPercent(stagedCount, totalCount, true)}%`} />
