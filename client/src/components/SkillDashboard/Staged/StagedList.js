@@ -90,7 +90,7 @@ export default function StagedList(props) {
     <Card className={classes.root}>
       <CardContent className={classes.container} style={{ height: 435, overflow: 'auto' }}>
         <Typography gutterBottom variant="h6" component="h4">
-          Tasks/Resource Staging
+          Recommendations
           </Typography>
         <div className={classes.pos} >
           {Object.keys(stagedDeliv).map((id, index) => {
