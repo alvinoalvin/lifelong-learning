@@ -27,17 +27,41 @@ module.exports = db => {
     }).catch(error => { error });
   });
 
+  router.post("/users/", (request, response) => {
+    const { first_name, last_name, email, password } = request.body
+
+    const values = [first_name, last_name, email, password];
+    const queryString = `INSERT INTO users(first_name, last_name, email, password, position)
+    VALUES ($1, $2, $3, $4, "")`;
+
+    db.query(queryString, values).then(({ rows: users }) => {
+      response.json(users);
+    }).catch(error => { error });
+  });
+
+
+  router.get("/users/", (request, response) => {
+    const {email, password } = request.body
+
+    const values = [email, password];
+    const queryString = `SELECT * from users where email = $1 and password = $2)`;
+
+    db.query(queryString, values).then(({ rows: users }) => {
+      response.json(users);
+    }).catch(error => { error });
+  });
+
   router.delete("/users/:user_id", (request, response) => {
     const values = [request.params.user_id]
     const queryString = `UPDATE users SET delete=true WHERE id=$1`
 
     db.query(queryString, values)
-    .then((result) => {
-      response.json({msg: 'success'})
-    })
-    .catch((err) => {
-      console.log(err.message)
-    });
+      .then((result) => {
+        response.json({ msg: 'success' })
+      })
+      .catch((err) => {
+        console.log(err.message)
+      });
   })
   return router;
 }
