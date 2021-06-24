@@ -21,6 +21,8 @@ import Team from "./Team";
 import Recommend from "./Recommend";
 import Report from "./Report";
 import Skills from "./Skills";
+import Login from "./Login";
+import SignUp from "./SignUp";
 
 /* import icons */
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
@@ -144,6 +146,18 @@ export default function Application() {
                 <ListItemText disableTypography className='tab-item' primary='Team'></ListItemText>
               </ListItem>
             </Link>
+            <Link to="/login">
+              <ListItem>
+                <ListItemIcon><GroupIcon /></ListItemIcon>
+                <ListItemText disableTypography className='tab-item' primary='Login'></ListItemText>
+              </ListItem>
+            </Link>
+            <Link to="/signup">
+              <ListItem>
+                <ListItemIcon><GroupIcon /></ListItemIcon>
+                <ListItemText disableTypography className='tab-item' primary='SignUp'></ListItemText>
+              </ListItem>
+            </Link>
             <Divider />
           </List>
         </Drawer>
@@ -151,6 +165,12 @@ export default function Application() {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <Switch>
+            <Route path="/signup">
+              <SignUp/>
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
             <Route path="/team">
               <Team />
             </Route>
