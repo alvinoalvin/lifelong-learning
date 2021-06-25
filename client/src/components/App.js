@@ -22,7 +22,7 @@ import Recommend from "./Recommend";
 import Report from "./Report";
 import Skills from "./Skills";
 import Login from "./Login";
-import SignUp from "./SignUp";
+import SignUp from "./SignUp";  
 
 /* import icons */
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
