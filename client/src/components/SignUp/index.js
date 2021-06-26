@@ -73,6 +73,10 @@ export default function SignUp() {
     return axios.post(`api/users/signup`, newUser)
       .then(function(response) {
         alert(`New User created for email ${newUser.email}`);
+        /* TODO
+          - set context variable on, and login on sign up
+          - implement sign up
+        */
       })
       .catch(function(error) {
         console.log(error);
