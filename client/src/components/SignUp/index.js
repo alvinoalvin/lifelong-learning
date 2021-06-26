@@ -14,6 +14,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import axios from "axios";
 
 import '../../styles/variables.scss';
 
@@ -61,6 +62,22 @@ export default function SignUp() {
   const { team_id } = useContext(authContext);
   const teamID = team_id;
 
+  function addUser() {
+    const newUser = {
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      password: password
+    }
+    console.log("hi: ", newUser)
+    return axios.post(`api/users/signup`, newUser)
+      .then(function(response) {
+        alert(`New User created for email ${newUser.email}`);
+      })
+      .catch(function(error) {
+        console.log(error);
+      });
+  }
 
   return (
     <Container component="main" maxWidth="xs">
@@ -137,13 +154,14 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={event => { addUser(); console.log("onClick") }}
           >
             Sign Up
           </Button>
           <Grid container justify="flex-end">
             <Grid item>
               <Link href="#" variant="body2">
-              Already have an account? Sign in
+                Already have an account? Sign in
               </Link>
             </Grid>
           </Grid>

@@ -12,6 +12,7 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import axios from "axios";
 
 function Copyright() {
   return (
@@ -53,6 +54,10 @@ export default function Login() {
   const classes = useStyles();
   const [email, setEmail] = useState([""]);
   const [password, setPassword] = useState([""]);
+
+  function signIn() {
+    axios.get()
+  }
 
   return (
     <Container component="main" maxWidth="xs">
