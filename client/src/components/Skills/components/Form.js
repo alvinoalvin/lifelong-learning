@@ -8,14 +8,11 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles, ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import AddIcon from '@material-ui/icons/Add';
 import Snackbar from '@material-ui/core/Snackbar';
-import MuiAlert from '@material-ui/lab/Alert';
 import { purple } from "@material-ui/core/colors";
+import Alert from '../../../helpers/Components/Alert.js'
 
 import axios from 'axios';
 
-function Alert(props) {
-  return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
 
 const theme = createMuiTheme({
   palette: {

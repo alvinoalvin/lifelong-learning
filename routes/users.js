@@ -28,7 +28,7 @@ module.exports = db => {
   });
 
   router.post("/users/signup", (request, response) => {
-    console.log(request.body)
+    console.log("request: ",request.body)
     const { first_name, last_name, email, password } = request.body
 
     const values = [first_name, last_name, email, password, ""];
@@ -36,6 +36,7 @@ module.exports = db => {
     VALUES ($1, $2, $3, $4, $5 )`;
 
     db.query(queryString, values).then(({ rows: users }) => {
+      console.log("response",users)
       response.json(users);
     }).catch(error => { console.log(error) });
   });

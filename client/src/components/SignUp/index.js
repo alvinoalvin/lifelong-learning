@@ -15,7 +15,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import axios from "axios";
+import Snackbar from '@material-ui/core/Snackbar';
 
+import Alert from '../../helpers/Components/Alert.js'
 import '../../styles/variables.scss';
 
 
@@ -31,7 +33,9 @@ function Copyright() {
     </Typography>
   );
 }
-
+// function Alert(props) {
+//   return <MuiAlert elevation={6} variant="filled" {...props} />;
+// }
 const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
@@ -62,6 +66,25 @@ export default function SignUp() {
   const { team_id } = useContext(authContext);
   const teamID = team_id;
 
+  const [alert, setAlert] = useState({
+    message: '',
+    severity: ''
+  });
+
+  const [snack, setSnack] = useState(false);
+  function validateEmail(email) {
+    var re = /\S+@\S+\.\S+/;
+    console.log(re.test(email))
+    return re.test(email);
+  }
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setSnack(false);
+  };
   function addUser() {
     const newUser = {
       first_name: firstName,
@@ -82,6 +105,7 @@ export default function SignUp() {
         console.log(error);
       });
   }
+
 
   return (
     <Container component="main" maxWidth="xs">
@@ -145,12 +169,12 @@ export default function SignUp() {
                 onChange={event => setPassword(event.target.value)}
               />
             </Grid>
-            <Grid item xs={12}>
+            {/* <Grid item xs={12}>
               <FormControlLabel
                 control={<Checkbox value="allowExtraEmails" color="primary" />}
                 label="I want to receive inspiration, marketing promotions and updates via email."
               />
-            </Grid>
+            </Grid> */}
           </Grid>
           <Button
             type="submit"
@@ -158,7 +182,27 @@ export default function SignUp() {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={event => { addUser(); console.log("onClick") }}
+            onClick={(event) => {
+              if (!firstName) {
+                event.preventDefault()
+                setAlert({ message: 'Please Enter A First Name', severity: 'error' })
+                setSnack(true)
+              } else if (!lastName) {
+                event.preventDefault()
+                setAlert({ message: 'Please Enter A Last Name', severity: 'error' })
+                setSnack(true)
+              } else if (!email && validateEmail(email)) {
+                event.preventDefault()
+                setAlert({ message: 'Please Enter An Email', severity: 'error' })
+                setSnack(true)
+              } else if (!password) {
+                event.preventDefault()
+                setAlert({ message: 'Please Enter A Password', severity: 'error' })
+                setSnack(true)
+              } else {
+                addUser()
+              }
+            }}
           >
             Sign Up
           </Button>
@@ -174,6 +218,15 @@ export default function SignUp() {
       <Box mt={5}>
         <Copyright />
       </Box>
+      <Snackbar
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        open={snack}
+        key={'report-snack-bar'}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <Alert onClose={handleClose} severity={alert.severity}>{alert.message}</Alert>
+      </Snackbar>
     </Container >
   );
 }
