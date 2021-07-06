@@ -1,0 +1,8 @@
+- on sign up if successful, log them in and goto all skills
+- add teammates need to check if account is active                                                      
+- add teamamtes should actually add to team
+- Login page required
+- sign up should only be accessible from login
+- need to change the name when user isn't donny
+- login should be first page if context var not set
+- use bycrpt
