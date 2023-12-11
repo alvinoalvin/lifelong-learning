@@ -1,7 +1,6 @@
 {
-  "name": "react-front-end",
+  "name": "lifelong-learning-front-end",
   "version": "0.1.0",
-  "private": true,
   "dependencies": {
     "@date-io/date-fns": "^1.3.13",
     "@fortawesome/fontawesome-svg-core": "^1.2.35",
