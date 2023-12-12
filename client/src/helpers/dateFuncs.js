@@ -19,4 +19,5 @@ function getDate(dateStr, plus1) {
   return (month + '-' + dt + '-' + year)
   // return (year + '-' + month + '-' + dt)
 }
-module.exports = { getDate }
+
+export { getDate }
