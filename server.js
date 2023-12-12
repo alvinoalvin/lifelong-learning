@@ -2,16 +2,18 @@ const cors = require('cors');
 const Express = require('express');
 const path = require('path');
 const App = Express();
+
 App.use(cors());
 App.options('*', cors());
+
 const BodyParser = require('body-parser');
-const PORT = (process.env.PORT || 8080);
+const PORT = (process.env.PORT || 3000);
 const db = require("./db");
 
 // Express Configuration
 App.use(BodyParser.urlencoded({ extended: false }));
 App.use(BodyParser.json());
-// App.use(Express.static('public'));
+
 App.use(Express.static(path.join(__dirname, 'client/build')));
 
 const users = require("./routes/users");
@@ -32,11 +34,6 @@ const status = require("./routes/status");
 App.use("/api", status(db));
 const notes = require("./routes/notes");
 App.use("/api", notes(db));
-
-// Sample GET route
-App.get('/api/data', (req, res) => res.json({
-  message: "Seems to work!",
-}));
 
 App.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/client/build/index.html'));
