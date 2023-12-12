@@ -16,32 +16,6 @@
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
   <!-- ABOUT THE PROJECT -->
 
 ## About The Project
@@ -50,7 +24,7 @@
 
 There are many great productivity apps that are on the web, however we wanted to create something that would allow users to track their own progress as well as make recommendations to help each others develop new skills.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 ### Built With
 
@@ -61,7 +35,7 @@ There are many great productivity apps that are on the web, however we wanted to
 - [Heroku](https://dashboard.heroku.com/)
 - [Postgres](https://www.postgresql.org/)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 <!-- GETTING STARTED -->
 
@@ -101,7 +75,7 @@ This is an example of how to list things you need to use the software and how to
    ```
 4. Navigate to localhost:3000
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 <!-- USAGE EXAMPLES -->
 
@@ -123,7 +97,7 @@ This site allows users to keep track of their progress on new skills and to plan
 4.  from there we can now interact with whatever we need say check off a task or add a note, maybe check out a recommendation from a friend
     ![skill-record](client/public/images/skill-record-screenshot.JPG)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>
 
 <!-- LICENSE -->
 
@@ -131,4 +105,4 @@ This site allows users to keep track of their progress on new skills and to plan
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="#readme-top">back to top</a></p>

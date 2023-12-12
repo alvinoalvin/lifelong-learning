@@ -1,10 +1,19 @@
 {
-  "name": "express-back-end",
-  "version": "1.0.1",
-  "description": "Boilerplate for the Express backend in an Express-React project",
+  "name": "lifelong-learning",
+  "version": "1.0.0",
+  "description": "A progress tracking app for learning new skills",
   "main": "server.js",
-  "author": "garrettgsb",
-  "license": "MIT",
+  "contributors": [
+    {
+      "name": "Alvin Ng"
+    },
+    {
+      "name": "Donny Li"
+    },
+    {
+      "name": "Zea Lingard"
+    }
+  ],
   "scripts": {
     "start": "node ./server.js",
     "heroku-postbuild": "cd client && npm install && npm run build"
@@ -19,5 +28,6 @@
   },
   "devDependencies": {
     "nodemon": "^1.19.4"
-  }
+  },
+  "license": "MIT"
 }
