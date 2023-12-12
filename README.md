@@ -46,7 +46,7 @@
 
 ## About The Project
 
-![home-dashboard](client/public/images/home-dashboard.JPG)
+![home-dashboard](client/public/images/home-dashboard.jpg)
 
 There are many great productivity apps that are on the web, however we wanted to create something that would allow users to track their own progress as well as make recommendations to help each others develop new skills.
 
