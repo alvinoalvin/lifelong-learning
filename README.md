@@ -65,11 +65,11 @@ This is an example of how to list things you need to use the software and how to
 
 ### Running the project
 
-2. Build the project on both client and server side(root dir). You'll need a second terminal for this
+2. Build the project in the client directory.
    ```
    npm run build
    ```
-3. Run the project on both client and server side
+3. Run the project on both client and server side. You'll need a second terminal for this
    ```
    npm run start
    ```
