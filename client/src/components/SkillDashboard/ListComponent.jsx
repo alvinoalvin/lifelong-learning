@@ -13,8 +13,7 @@ import EnhancedTable from "./EnhancedTable";
 import '../../styles/TasksListComponent.scss';
 
 /* Libraries */
-const axios = require('axios');
-
+import axios from 'axios'
 const useStyles = makeStyles((theme) => ({
   root: {
     '& > *': {

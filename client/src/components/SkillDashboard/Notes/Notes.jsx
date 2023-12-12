@@ -41,7 +41,7 @@ const useStyles = makeStyles({
 });
 
 /* Libraries */
-const axios = require('axios');
+import axios from 'axios';
 
 const theme = createMuiTheme({
   palette: {

@@ -39,7 +39,7 @@ const useStyles = makeStyles({
 });
 
 /* Libraries */
-const axios = require('axios');
+import axios from 'axios';
 
 export default function StagedList(props) {
   const classes = useStyles();

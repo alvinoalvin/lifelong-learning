@@ -6,10 +6,10 @@ import { MuiPickersUtilsProvider, KeyboardDatePicker } from '@material-ui/picker
 import "../../../styles/variables.scss";
 
 import DateFnsUtils from '@date-io/date-fns';
+import {getDate}  from '../../../helpers/dateFuncs'
 
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
-import { getDate } from "../../../helpers/dateFuncs"
 
 import rowStyle from '../../../helpers/deliverableRowStyles';
 

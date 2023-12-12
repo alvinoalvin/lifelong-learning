@@ -6,7 +6,7 @@ import { ProgressBar } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 /* Libraries */
-const axios = require('axios');
+import axios from 'axios';
 const useStyles = makeStyles({
   root: {
     minWidth: 275,

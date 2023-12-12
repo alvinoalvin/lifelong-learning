@@ -10,7 +10,7 @@ import ListComponent from '../ListComponent';
 import '../../../styles/TasksListComponent.scss';
 
 /* Libraries */
-const axios = require('axios');
+import axios from 'axios';
 
 export default function ResourceListComponent(props) {
   const { resources, setResources } = props
